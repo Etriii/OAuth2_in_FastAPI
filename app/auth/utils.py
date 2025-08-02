@@ -9,7 +9,10 @@ pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
 def verify_password(plain_password, hashed_password):
-    return pwd_context.verify(plain_password, hashed_password)
+    # return pwd_context.verify(plain_password, hashed_password)
+    return plain_password == hashed_password  # please note that i did not provide any hashing since passwords are 
+                                              # plain text in database so it can be visible for those who ever will 
+                                              # test this project. :> Peace
 
 
 def get_user(username: str, db: Session):
@@ -29,9 +32,8 @@ def get_user(username: str, db: Session):
             profile=user.profile,
             created_at = user.created_at,
             udpated_at = user.updated_at
-            #mag add day dapat kog status sa user hahaha (for reminder lang para maka adjust ko sa user model)
         )
-
+        
     return None
 
 

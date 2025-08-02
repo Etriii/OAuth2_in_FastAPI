@@ -8,10 +8,7 @@ from ..auth.models import User
 
 from ..db import get_db
 
-from sqlmodel import Session, select
-
-
-from ..auth.utils import pwd_context
+from sqlmodel import Session
 
 
 router = APIRouter(tags=["Auth"])
@@ -22,6 +19,13 @@ router = APIRouter(tags=["Auth"])
 async def login(
     form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)
 ):
+    """
+        you can both username and email
+    
+    email: alex@gmail.com or adminalex@gmail.com
+    username: etriii or adminetriii
+    password: superadmin
+    """
     user = utils.authenticate_user(form_data.username, form_data.password, db)
     if not user:
         raise HTTPException(status_code=400, detail="Incorrect username or password")
