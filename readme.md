@@ -20,3 +20,9 @@ credentials:
     username: etriii or adminetriii
     password: superadmin
 
+
+please message me if database or the api doesnt work, so i can fix it for you :>
+email me here
+```
+alexarnaizaparece@gmail.com
+```
