@@ -1,0 +1,12 @@
+fastapi
+uvicorn[standard]
+gunicorn
+alembic
+sqlmodel
+psycopg2-binary
+httpx
+boto3
+python-multipart
+bcrypt<4.1
+python-jose[cryptography] 
+passlib[bcrypt] 
