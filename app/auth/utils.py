@@ -25,7 +25,7 @@ def get_user(username: str, db: Session):
             username=user.username,
             email=user.email,
             email_verified_at=user.email_verified_at,
-            password_hash=user.password_hash,
+            hashed_password=user.hashed_password,
             profile=user.profile,
             created_at = user.created_at,
             udpated_at = user.updated_at
@@ -37,6 +37,6 @@ def get_user(username: str, db: Session):
 
 def authenticate_user(username: str, password: str, db: Session):
     user = get_user(username, db)
-    if not user or not verify_password(password, user.password_hash):
+    if not user or not verify_password(password, user.hashed_password):
         return False
     return user

@@ -12,4 +12,4 @@ class User(BaseModel):
     updated_at: datetime | None = None
     
 class UserInDB(User):
-    password_hash: str
+    hashed_password: str

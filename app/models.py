@@ -11,7 +11,7 @@ class User(SQLModel, table=True):
     email_verified_at: Optional[datetime] = Field(
         default=None, sa_column=Column(DateTime, nullable=True)
     )
-    password_hash: str = Field(sa_column=Column(String(1024)))
+    hashed_password: str = Field(sa_column=Column(String(1024)))
     profile: str = Field(sa_column=Column(String(255), nullable=True))
     created_at: datetime = Field(default_factory=datetime.now)
     updated_at: Optional[datetime] = Field(
